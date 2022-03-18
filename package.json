@@ -6,8 +6,10 @@
   "scripts": {
     "start": "electron .",
     "build": "webpack --config webpack.config.js",
-    "build-mac-x64": "electron-builder --mac --x64",
-    "build-mac-arm64": "electron-builder --mac --arm64"
+    "build-mac": "electron-builder --mac",
+    "build-mac-arm64": "electron-builder --mac --arm64",
+    "build-win-ia32": "electron-builder --win --ia32",
+    "build-win-x64": "electron-builder --win --x64"
   },
   "keywords": [],
   "author": "",
@@ -31,7 +33,25 @@
     },
     "dmg": {
       "title": "Markdown Editor",
-      "icon": "./assets/icon.icns"
+      "background": "./assets/background.png",
+      "contents": [
+        {
+          "x":130,
+          "y":170
+      },
+      {
+          "x":410,
+          "y":170,
+          "type":"link",
+          "path":"/Applications"
+      }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "./assets/icon.ico"
     }
   }
 }
